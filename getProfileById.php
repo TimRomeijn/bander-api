@@ -2,7 +2,7 @@
 	require "config.php";
 	$return = [];
 
-	$sql = "SELECT * FROM `difficulties`";
+	$sql = "SELECT * FROM `bndr_profile`";
 
 	if (isset($_GET["id"]) && !empty($_GET["id"])) {
 		$sql .= " WHERE `id` = " . $_GET["id"];
