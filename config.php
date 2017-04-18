@@ -1,9 +1,9 @@
 <?php
 	//Database configuration
-	define("DB_SERVER", "localhost");
-	define("DB_NAME", "bander");
-	define("DB_USERNAME", "root");
-	define("DB_PASSWORD", "");
+	define("DB_SERVER", "sql.hosted.hr.nl");
+	define("DB_NAME", "0894594");
+	define("DB_USERNAME", "0894594");
+	define("DB_PASSWORD", "57da9b39");
 
 	require "db.php";
 	$APIDB = new APIDB();

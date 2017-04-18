@@ -13,7 +13,7 @@ class checkCredentials {
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
         $stmt = "";
-        $stmt = $this->APIDB->conn->prepare("INSERT INTO profile(name, password, salt, image, lat, lng, email_adress, tel_number) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $this->APIDB->conn->prepare("INSERT INTO bndr_profile(name, password, salt, image, lat, lng, email_adress, tel_number) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssssss", $name, $encrypted_password, $salt, $image, $lat, $lng, $email_adress, $tel_number);
         $result = $stmt->execute();
         $stmt->close();
@@ -23,7 +23,7 @@ class checkCredentials {
         if ($result) 
 		{
 			$user = null;
-            $stmt = $this->APIDB->conn->prepare("SELECT name, password, salt, image, lat, lng, email_adress, tel_number FROM profile WHERE name = ?");
+            $stmt = $this->APIDB->conn->prepare("SELECT name, password, salt, image, lat, lng, email_adress, tel_number FROM bndr_profile WHERE name = ?");
 			$stmt->bind_param("s", $name);
 			$result = $stmt->execute();
 			$stmt->bind_result($name, $password, $salt, $image, $lat, $lng, $email_adress, $tel_number);
@@ -44,7 +44,7 @@ class checkCredentials {
      * Get user by name and password
      */
     public function getUserByNameAndPassword($name, $password2) {
-        $stmt = $this->APIDB->conn->prepare("SELECT  name, password, salt FROM profile WHERE name = ?");
+        $stmt = $this->APIDB->conn->prepare("SELECT  name, password, salt FROM bndr_profile WHERE name = ?");
         $stmt->bind_param("s", $name);
         if ($stmt->execute()) {
 			
@@ -72,7 +72,7 @@ class checkCredentials {
      * Check user is existed or not
      */
     public function isUserExisted($name) {
-        $stmt = $this->APIDB->conn->prepare("SELECT name from profile WHERE name = ?");
+        $stmt = $this->APIDB->conn->prepare("SELECT name from bndr_profile WHERE name = ?");
         $stmt->bind_param("s", $name);
         $stmt->execute();
         $stmt->store_result();
