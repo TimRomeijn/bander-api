@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	RewriteRule ^getInitCheck/?$ getInitCheck.php
+	
+	RewriteRule ^getRoutes/?$ getRoutes.php
+	RewriteRule ^getRoutes/([0-9]+)/?$ getRoutes.php?id=$1
+
+	RewriteRule ^getPOIs/?$ getPOIs.php
+	RewriteRule ^getPOIs/([0-9]+)/?$ getPOIs.php?routeId=$1
+
+	RewriteRule ^getPOITypes/?$ getPOITypes.php
+	RewriteRule ^getPOITypes/([0-9]+)/?$ getPOITypes.php?id=$1
+
+	RewriteRule ^getExercises/?$ getExercises.php
+	RewriteRule ^getExercises/([0-9]+)/([0-9]+)/?$ getExercises.php?poiTypeId=$1&difficultyId=$2
+
+	RewriteRule ^getDifficulties/?$ getDifficulties.php
+	RewriteRule ^getDifficulties/([0-9]+)/?$ getDifficulties.php?id=$1
+</IfModule>
