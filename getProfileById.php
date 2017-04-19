@@ -14,9 +14,10 @@
 			$tempDifficulty = [];
 			$tempDifficulty["id"] = (int) $row["id"];
 			$tempDifficulty["name"] = $row["name"];
-			$tempDifficulty["description"] = $row["description"];
-			$tempDifficulty["icon"] = $row["icon"];
-			array_push($return, $tempDifficulty);
+			$tempDifficulty["image"] = $row["image"];
+			$tempDifficulty["email_adress"] = $row["email_adress"];
+			$tempDifficulty["tel_number"] = (int) $row["tel_number"];
+			$return = $tempDifficulty;
 		}
 	} else {
 		http_response_code(404); //not found
